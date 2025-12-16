@@ -26,8 +26,11 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
+    - name: 💬 Восстанавливаем зависимости
+      run: dotnet restore
+
     - name: 💬 Проверяем синтаксис
-      run: dotnet build ${{ env.PROJECT_PATH }} --nologo --verbosity quiet
+      run: dotnet build --nologo --verbosity quiet
 
   # Джоба 2: Сборка на разных ОС (матрица)
   build:
@@ -48,8 +51,11 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     
+    - name: 💬 Восстанавливаем зависимости
+      run: dotnet restore
+    
     - name: ⚙ Собираем проект
-      run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+      run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release
     
     - name: 💾 Сохраняем артефакт сборки
       uses: actions/upload-artifact@v4
@@ -74,6 +80,9 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     
+    - name: 💬 Восстанавливаем зависимости
+      run: dotnet restore
+    
     - name: 🧪 Запускаем тесты
       run: dotnet test ${{ env.TEST_PATH }} --verbosity normal
 
@@ -91,6 +100,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: 💬 Восстанавливаем зависимости
+      run: dotnet restore
     
     - name: 📦 Создаем NuGet пакет
       run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --output ./packages
