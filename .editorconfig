@@ -7,11 +7,11 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
 
 [*.cs]
-indent_size = 4
-indent_style = space
-# Правила для форматирования
+# Правила форматирования
 dotnet_sort_system_directives_first = true
 dotnet_style_prefer_inferred_tuple_names = true
 dotnet_style_prefer_inferred_anonymous_type_member_names = true
@@ -21,10 +21,21 @@ dotnet_style_coalesce_expression = true
 dotnet_style_null_propagation = true
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true
 
-# Пробелы в аргументах методов
+# Пробелы
 dotnet_style_space_after_comma = true
 dotnet_style_space_before_comma = false
+dotnet_style_space_after_colon_in_inheritance_clause = true
+dotnet_style_space_between_method_call_parameter_list_parentheses = false
+dotnet_style_space_between_method_call_name_and_opening_parenthesis = false
+dotnet_style_space_between_method_declaration_parameter_list_parentheses = false
+dotnet_style_space_between_method_declaration_name_and_opening_parenthesis = false
 
-# Пробелы в операторах
-dotnet_style_space_around_binary_operators = before_and_after
-dotnet_style_space_around_assignment_operators = before_and_after
+# Скобки
+dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary
+dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary
+dotnet_style_parentheses_in_other_binary_operators = never_if_unnecessary
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary
+
+# Новые строки
+dotnet_style_allow_multiple_blank_lines = false
+dotnet_style_allow_statement_immediately_after_block = false
