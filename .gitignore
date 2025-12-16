@@ -1,0 +1,9 @@
+bin/
+obj/
+packages/
+publish/
+TestResults/
+*.user
+*.suo
+*.cache
+*.vs/
